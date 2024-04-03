@@ -33,7 +33,7 @@ class Filters extends BaseConfig
      *
      * @var array<string, array<string, array<string, string>>>|array<string, list<string>>
      */
-    public array $globals = [
+    public array $globals = [ 
         'before' => [
             // 'honeypot',
             // 'csrf',
