@@ -24,9 +24,14 @@
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="<?= base_url()?>assets/index3.html" method="post">
+      <!-- Display flash message if it exists -->
+      <?php if(session()->has('gagal')): ?>
+        <div class="alert alert-danger"><?= session('gagal') ?></div>
+      <?php endif; ?>
+
+      <form action="<?= base_url('/login')?>" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" placeholder="username" name="username"> <!-- Add name attribute -->
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +39,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="password"> <!-- Add name attribute -->
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -57,29 +62,9 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
 </div>
-<!-- /.login-box -->
 
 <!-- jQuery -->
 <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
